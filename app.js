@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', function(){
     //plate2 = new Player(5, 150, playerPlateImg2, 10, 75); not working - follow up
     plate1 = new Player(785, 150, 'silver', 10, 75)
     plate2 = new Player(5, 150, 'silver', 10, 75)
-    meatball = new Meatball(400, 200, 'brown', 10);
+    meatball = new Meatball(400, 200, 'brown', 10, 10, 10);
 
     const runGame = this.setInterval(gameLoop, 60);
 });
@@ -53,16 +53,18 @@ class Player {
     }
 }
 class Meatball {
-    constructor(x, y, color, radius){
+    constructor(x, y, color, radius, vx, vy){
         this.x = x;
         this.y = y;
         this.color = color;
         this.radius = radius;
+        this.vx = vx;
+        this.vy = vy;
     
     this.render = function(){
         ctx.fillStyle = this.color
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); //https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
         ctx.fill();
         }
     }
@@ -93,5 +95,6 @@ function gameLoop() {
     plate1.render();
     plate2.render();
     meatball.render();
-
+    meatball.x += meatball.vx;
+    meatball.y += meatball.vy;
 }
