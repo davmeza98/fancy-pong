@@ -14,7 +14,22 @@ let meatball;
 const playerPlate1 = document.getElementById('plate1');
 const playerPlate2 = document.getElementById('plate2');
 
-console.log(playerPlate1)
-game.width = "900";
+game.width = "1000";
 game.height = "600";
 
+//set player classes
+
+class Player {
+    constructor(x, y, image, width, height) {
+        this.x = x;
+        this.y = y;
+        this.image = image;
+        this.width = width;
+        this.height = height;
+        this.alive = true;
+
+        this.render = function() {
+            ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+        }
+    }
+}
