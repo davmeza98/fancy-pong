@@ -97,4 +97,16 @@ function gameLoop() {
     meatball.render();
     meatball.x += meatball.vx;
     meatball.y += meatball.vy;
+
+    if (meatball.y + meatball.vy > game.height - meatball.radius ||
+        meatball.y + meatball.vy < meatball.radius) {
+            meatball.vy = -meatball.vy;
+    }
+
+    if (meatball.x + meatball.vx > game.width - meatball.radius ||
+        meatball.x + meatball.vx < meatball.radius) {
+            meatball.vx = -meatball.vx;
+    }
+    
+
 }
