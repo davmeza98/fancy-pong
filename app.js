@@ -14,7 +14,19 @@ let meatball;
 const playerPlateImg1 = document.getElementById('plate1');
 const playerPlateImg2 = document.getElementById('plate2');
 const meatballImg = document.getElementById('meatball');
+//paint initial screen
 
+window.addEventListener('DOMContentLoaded', function(){
+    //plate1 = new Player(785, 150, playerPlateImg1, 10, 75); not working- Follow up
+    //plate2 = new Player(5, 150, playerPlateImg2, 10, 75); not working - follow up
+    plate1 = new Player(785, 150, 'silver', 10, 75)
+    plate2 = new Player(5, 150, 'silver', 10, 75)
+    meatball = new Meatball(400, 200, 'brown', 10);
+
+    const runGame = this.setInterval(gameLoop, 60);
+});
+
+document.addEventListener('keydown', movementHandler);
 
 //Canvas render
 game.setAttribute('height', getComputedStyle(game)['height']);
@@ -31,26 +43,55 @@ class Player {
         this.height = height;
         
 
-        this.render = function() {
+       // this.render = function() {
+          //ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+        //}
+        this.render = function(){
             ctx.fillStyle = this.color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
         }
     }
 }
+class Meatball {
+    constructor(x, y, color, radius){
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.radius = radius;
+    
+    this.render = function(){
+        ctx.fillStyle = this.color
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+        }
+    }
+}
 
-plate1 = new Player(785, 150, 'silver', 10, 75);
-plate1.render();
 
-plate2 = new Player(5, 150, 'silver', 10, 75);
-plate2.render();
+//render player on canvas
+//plate1 = new Player(785, 150, 'silver', 10, 75);
+//plate1.render();
+
+//plate2 = new Player(5, 150, 'silver', 10, 75);
+//plate2.render();
+//keyboard function
 
 function movementHandler(e) {
+    console.log('movement :', e.key);
     if (e.key === 'ArrowUp' || e.key === 'w'){
-        if (plate2.y - 10 >= 0){
-            plate2.y -= 10;
-        }
+        plate2.y - 10 >= 0 ? (plate2.y -= 10) : null;
+        
     } else if (e.key === 'ArrowDown' || e.key === 's'){
-        if (plate2.y + 10 <= game.height  - plate2.height)
-        plate2.y += 10;
+        plate2.y + 10 <= game.height - plate2.height ? (plate2.y += 10) : null;
     }
+}
+
+//Game Process
+function gameLoop() {
+    ctx.clearRect(0, 0, game.width, game.height);
+    plate1.render();
+    plate2.render();
+    meatball.render();
+
 }
