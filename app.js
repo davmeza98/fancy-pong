@@ -19,8 +19,8 @@ const meatballImg = document.getElementById('meatball');
 window.addEventListener('DOMContentLoaded', function(){
     //plate1 = new Player(785, 150, playerPlateImg1, 10, 75); not working- Follow up
     //plate2 = new Player(5, 150, playerPlateImg2, 10, 75); not working - follow up
-    plate1 = new Player(785, 150, 'silver', 10, 75)
-    plate2 = new Player(5, 150, 'silver', 10, 75)
+    plate1 = new Player(770, 150, 'silver', 10, 75)
+    plate2 = new Player(20, 150, 'silver', 10, 75)
     meatball = new Meatball(400, 200, 'brown', 10, 10, 10);
 
     const runGame = this.setInterval(gameLoop, 60);
@@ -98,6 +98,9 @@ function gameLoop() {
     meatball.x += meatball.vx;
     meatball.y += meatball.vy;
 
+   detectHit(meatball, plate1)
+   detectHit2(meatball, plate2)
+        
     if (meatball.y + meatball.vy > game.height - meatball.radius ||
         meatball.y + meatball.vy < meatball.radius) {
             meatball.vy = -meatball.vy;
@@ -107,6 +110,22 @@ function gameLoop() {
         meatball.x + meatball.vx < meatball.radius) {
             meatball.vx = -meatball.vx;
     }
-    
-
 }
+function detectHit(meatball, plate1){
+if (meatball.x + meatball.radius >= plate1.x &&
+    meatball.y + meatball.radius >= plate1.y &&
+    meatball.y <= plate1.y + plate1.height){
+        console.log('hit here')
+        meatball.vx = -meatball.vx
+    }
+}
+
+function detectHit2(meatball, plate2){
+   
+    if (meatball.x - meatball.radius <= plate2.x + plate2.width  &&
+        meatball.y + meatball.radius >= plate2.y &&
+        meatball.y - meatball.radius <= plate2.y + plate2.height){
+            console.log('hit here')
+            meatball.vx = -meatball.vx
+        }
+    }
