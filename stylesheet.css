@@ -10,17 +10,41 @@ html,body {
     background-size: cover;
     background-repeat: space;
   }
-  
-  h1, h2 {
+  #start {
+    display: grid;
+    opacity: 1;
+    background-color: #222;
+    transition: opacity .5s ease-out;
+  }
+  #start-button {
+    margin: auto;
+    width: 10rem;
+  }
+  #player {
+    text-align: center;
+    align-items: center;
+    width: 15rem;
+    margin: auto;
+    height: 3rem;
+    font-size: 2rem;
     font-family: Snell Roundhand, cursive;
-    color: goldenrod;
   }
   
+  h1, h2, h3, h4{
+    font-family: Snell Roundhand, cursive;
+    color: goldenrod;
+    text-align: center;
+  }
+ 
+  
   canvas {
+   
     background-image: url(./images/Screenshot\ 2024-04-10\ at\ 9.41.24\ PM.png);
     background-position: center;
     width: 100%;
     height: 500;
+
+
   } 
   
   #container {
@@ -34,9 +58,11 @@ html,body {
   grid-template-areas: "top-left center top-right"
                         "game game game"
                         "btm-left btm-center btm-right";
+  opacity: 0;
+  transition: opacity .5s ease-in;
   }
   
-  #top-left, #top-right, #btm-left, #btm-right, #center, #btm-center {
+ #top-left, #top-right, #btm-left, #btm-right, #center, #btm-center {
     display: flex;
     justify-content: center;
     align-items: center;
