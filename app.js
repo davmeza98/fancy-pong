@@ -28,8 +28,8 @@ function startGameScreen() {
     container.style.transitionDelay = '1s'
     container.style.opacity = '1';
     player1Element.textContent = playerInput.value;
+    let runGame = setInterval(gameLoop, 60);
    }
-   let runGame = setInterval(gameLoop, 60);
 
 
 window.addEventListener('DOMContentLoaded', function(){
@@ -182,7 +182,7 @@ function showWinner(){
         status.textContent = player1Element.textContent + ' wins! Not going broke today!'
     } else if (score2 === 6){
         status.textContent = 'Harold won.....better get to washing dishes.';
-        
+
     }
     startScreen.style.opacity = '1'
     startScreen.style.transitionDelay = '5s'
