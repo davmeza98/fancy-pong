@@ -10,6 +10,7 @@ const startButton = document.getElementById('start-button')
 const container = document.getElementById('container');
 const playerInput = document.getElementById('player')
 
+console.log(status)
 
 let plate1;
 let plate2;
@@ -27,8 +28,8 @@ function startGameScreen() {
     container.style.transitionDelay = '1s'
     container.style.opacity = '1';
     player1Element.textContent = playerInput.value;
-    const runGame = setInterval(gameLoop, 60);
    }
+   let runGame = setInterval(gameLoop, 60);
 
 
 window.addEventListener('DOMContentLoaded', function(){
@@ -122,7 +123,12 @@ function gameLoop() {
     if (meatball.y + meatball.vy > game.height - meatball.radius ||
         meatball.y + meatball.vy < meatball.radius) {
             meatball.vy = -meatball.vy;
+
+    if (score === 6 || score2 === 6){
+    clearInterval(runGame);
+    showWinner()
     }
+}
 }
 function detectHit(meatball, plate1){
 if (meatball.x + meatball.radius >= plate1.x - plate1.width &&
@@ -144,8 +150,10 @@ function detectHit2(meatball, plate2){
             meatball.vy = -meatball.vy * 1.5
         }
     }
+
     let score = 0
     let score2 = 0
+
 function meatballReset(ball){
     if (ball.x + ball.radius < 0) {
         ball.x = game.width / 2;
@@ -154,6 +162,8 @@ function meatballReset(ball){
         ball.vy = -10;
         score2 ++
         score2Element.textContent = score2
+        status.textContent = 'Harold scored...better step it up!'
+        //status.textContent = new Typed('Harold Scored..better step it up!')
     }
     else if (ball.x - ball.radius > game.width){
         ball.x = game.width / 2;
@@ -162,6 +172,18 @@ function meatballReset(ball){
         ball.vy = 10;
         score ++
         scoreElement.textContent = score
+        status.textContent = player1Element.textContent + ' scored! Keep it up!'
+       // status.textContent = new Typed(player1Element.textContent + ' scored! Keep it up!')
     }
-}
+    }
 
+function showWinner(){
+    if (score === 6) {
+        status.textContent = player1Element.textContent + ' wins! Not going broke today!'
+    } else if (score2 === 6){
+        status.textContent = 'Harold won.....better get to washing dishes.';
+        
+    }
+    startScreen.style.opacity = '1'
+    startScreen.style.transitionDelay = '5s'
+}

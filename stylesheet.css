@@ -6,21 +6,33 @@ html,body {
   body {
     padding-top: 1em;
     text-align: center;
-    background-color: black;
+    background-image: url(./images/Screenshot\ 2024-04-10\ at\ 9.41.24\ PM.png);
     background-size: cover;
+    background-position: center;
     background-repeat: space;
+  }
+  #player{
+    background-color: goldenrod;
+    color: #222;
+  }
+  #start-button {
+    background-color: goldenrod;
+    color: #222;
+    font-style: italic;
   }
   #start {
     display: grid;
     opacity: 1;
     background-color: #222;
     transition: opacity .5s ease-out;
+    background-size: cover;
+    border-radius: 4rem;
   }
   #start-button {
     margin: auto;
     width: 10rem;
   }
-  #player {
+  #player{
     text-align: center;
     align-items: center;
     width: 15rem;
@@ -30,7 +42,7 @@ html,body {
     font-family: Snell Roundhand, cursive;
   }
   
-  h1, h2, h3, h4{
+  h1, h2, h3{
     font-family: Snell Roundhand, cursive;
     color: goldenrod;
     text-align: center;
@@ -38,15 +50,23 @@ html,body {
  
   
   canvas {
-   
-    background-image: url(./images/Screenshot\ 2024-04-10\ at\ 9.41.24\ PM.png);
-    background-position: center;
+    border: solid #222;
     width: 100%;
     height: 500;
 
 
   } 
-  
+  aside {
+    border-radius: 4rem;
+  }
+  #btm-center, #center, h4{
+    font-family: Snell Roundhand, cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: goldenrod;
+    color: #222;
+  }
   #container {
   max-width: 50em;
   margin: 0 auto;
@@ -62,7 +82,7 @@ html,body {
   transition: opacity .5s ease-in;
   }
   
- #top-left, #top-right, #btm-left, #btm-right, #center, #btm-center {
+ #top-left, #top-right, #btm-left, #btm-right{
     display: flex;
     justify-content: center;
     align-items: center;
