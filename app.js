@@ -2,12 +2,14 @@ const game = document.getElementById('game')
 const scoreElement= document.getElementById('score')
 const score2Element = document.getElementById('score2')
 const player1Element = document.getElementById('playername')
-const player2Element = document.getElementById('playername2')
+
 const status = document.getElementById('status')
 const ctx = game.getContext('2d');
 const startScreen = document.getElementById('start');
 const startButton = document.getElementById('start-button')
 const container = document.getElementById('container');
+const playerInput = document.getElementById('player')
+
 
 let plate1;
 let plate2;
@@ -19,13 +21,15 @@ const playerPlateImg1 = document.getElementById('plate1');
 const playerPlateImg2 = document.getElementById('plate2');
 const meatballImg = document.getElementById('meatball');
 //paint initial screen
-window.addEventListener('click', startGameScreen)
+startButton.addEventListener('click', startGameScreen);
 function startGameScreen() {
     startScreen.style.opacity= '0';
+    container.style.transitionDelay = '1s'
     container.style.opacity = '1';
-
+    player1Element.textContent = playerInput.value;
     const runGame = setInterval(gameLoop, 60);
-}
+   }
+
 
 window.addEventListener('DOMContentLoaded', function(){
     //plate1 = new Player(785, 150, playerPlateImg1, 10, 75); not working- Follow up
@@ -84,10 +88,10 @@ class Meatball {
 function movementHandler(e) {
     console.log('movement :', e.key);
     if (e.key === 'ArrowUp' || e.key === 'w'){
-        plate2.y - 10 >= 0 ? (plate2.y -= 10) : null;
+        plate2.y - 20 >= 0 ? (plate2.y -= 20) : null;
         
     } else if (e.key === 'ArrowDown' || e.key === 's'){
-        plate2.y + 10 <= game.height - plate2.height ? (plate2.y += 10) : null;
+        plate2.y + 20 <= game.height - plate2.height ? (plate2.y += 20) : null;
     }
 }
 function moveCPUPlate() {
