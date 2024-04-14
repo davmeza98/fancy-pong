@@ -88,6 +88,16 @@ function movementHandler(e) {
         plate2.y + 10 <= game.height - plate2.height ? (plate2.y += 10) : null;
     }
 }
+function moveCPUPlate() {
+    const plateCenter = plate1.y + plate1.height / 2
+    if (meatball.y < plateCenter){
+        plate1.y - 7 >= 0 ? (plate1.y -= 7) : null;
+        
+    } else if (meatball.y > plateCenter){
+        plate1.y + 7 <= game.height - plate1.height ? (plate1.y += 7) : null;
+    }
+}
+
 
 //Game Process
 function gameLoop() {
@@ -101,6 +111,7 @@ function gameLoop() {
    detectHit(meatball, plate1);
    detectHit2(meatball, plate2);
    meatballReset(meatball);
+   moveCPUPlate()
         
     if (meatball.y + meatball.vy > game.height - meatball.radius ||
         meatball.y + meatball.vy < meatball.radius) {
@@ -113,6 +124,7 @@ if (meatball.x + meatball.radius >= plate1.x - plate1.width &&
     meatball.y <= plate1.y + plate1.height){
         console.log('hit here')
         meatball.vx = -meatball.vx * 1.25
+        meatball.vy = -meatball.vy * 1.5
     }
 }
 
@@ -123,14 +135,21 @@ function detectHit2(meatball, plate2){
         meatball.y - meatball.radius <= plate2.y + plate2.height){
             console.log('hit here')
             meatball.vx = -meatball.vx * 1.25
+            meatball.vy = -meatball.vy * 1.5
         }
     }
 function meatballReset(ball){
-    if (ball.x + ball.radius < 0 || ball.x - ball.radius > game.width){
+    if (ball.x + ball.radius < 0) {
         ball.x = game.width / 2;
         ball.y = game.height / 2;
-        ball.vx = Math.random() * 20 - 10;
-        ball.vy = Math.random() * 20 - 10;
+        ball.vx = -10;
+        ball.vy = -10;
+    }
+    else if (ball.x - ball.radius > game.width){
+        ball.x = game.width / 2;
+        ball.y = game.height / 2;
+        ball.vx = 10;
+        ball.vy = 10;
     }
 }
 
