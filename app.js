@@ -138,18 +138,24 @@ function detectHit2(meatball, plate2){
             meatball.vy = -meatball.vy * 1.5
         }
     }
+    let score = 0
+    let score2 = 0
 function meatballReset(ball){
     if (ball.x + ball.radius < 0) {
         ball.x = game.width / 2;
         ball.y = game.height / 2;
         ball.vx = -10;
         ball.vy = -10;
+        score2 ++
+        score2Element.textContent = score2
     }
     else if (ball.x - ball.radius > game.width){
         ball.x = game.width / 2;
         ball.y = game.height / 2;
         ball.vx = 10;
         ball.vy = 10;
+        score ++
+        scoreElement.textContent = score
     }
 }
 
