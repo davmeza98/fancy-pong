@@ -6,7 +6,7 @@ html,body {
   body {
     padding-top: 1em;
     text-align: center;
-    background-image: url(./images/Screenshot\ 2024-04-10\ at\ 9.41.24\ PM.png);
+    background-image: url(./images/background.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: space;
@@ -27,6 +27,7 @@ html,body {
     transition: opacity .5s ease-out;
     background-size: cover;
     border-radius: 4rem;
+    margin: 0 5rem 0 5rem;
   }
   #start-button {
     margin: auto;
