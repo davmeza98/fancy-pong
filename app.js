@@ -130,7 +130,7 @@ function gameLoop() {
     if (score === 6 || score2 === 6){
         showWinner()
     clearInterval(runGame);
-    setTimeout(gameReset, 1000)
+    gameReset()
     }
 }
 }
