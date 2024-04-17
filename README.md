@@ -230,5 +230,12 @@ Once either player scores 6, it will run the winner function, clear the game int
 - Adding sound effects and better visuals.
 
 # Getting Started
+--------INSTALLATION----------
+1. Fork and Clone this Repo,
+2. Git Clone onto your computer,
+3. Open Index.html file!
+4. Have fun playing Fancy Pong
 
-
+--------WEB GAME--------
+Click link below:
+[Fancy Pong] - (https://davmeza98.github.io/upscale-pong/)
