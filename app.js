@@ -155,8 +155,8 @@ function detectHit2(meatball, plate2){
         }
     }
 
-    let score = 5
-    let score2 = 5
+    let score = 0
+    let score2 = 0
 
 function meatballReset(ball){
     if (ball.x + ball.radius < 0) {
