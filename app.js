@@ -30,6 +30,7 @@ function startGameScreen() {
     container.style.opacity = '1';
     player1Element.textContent = playerInput.value;
     runGame = setInterval(gameLoop, 60);
+    setTimeout(runGame, 2000);
    }
 
 
@@ -129,6 +130,7 @@ function gameLoop() {
     if (score === 6 || score2 === 6){
         showWinner()
     clearInterval(runGame);
+    setTimeout(gameReset, 1000)
     }
 }
 }
@@ -153,7 +155,7 @@ function detectHit2(meatball, plate2){
         }
     }
 
-    let score = 5   
+    let score = 5
     let score2 = 5
 
 function meatballReset(ball){
@@ -164,7 +166,7 @@ function meatballReset(ball){
         ball.vy = -10;
         score2 ++
         score2Element.textContent = score2
-        status.textContent = 'Harold scored...better step it up!'
+        status.textContent = 'Harold scored...better step it up'
         //status.textContent = new Typed('Harold Scored..better step it up!')
     }
     else if (ball.x - ball.radius > game.width){
@@ -174,21 +176,20 @@ function meatballReset(ball){
         ball.vy = 10;
         score ++
         scoreElement.textContent = score
-        status.textContent = player1Element.textContent + ' scored! Keep it up!'
+        status.textContent = player1Element.textContent + ' scored Keep it up'
        // status.textContent = new Typed(player1Element.textContent + ' scored! Keep it up!')
     }
     }
 
 function showWinner(){
     if (score === 6) {
-        winScreen.textContent = 'Congrats ' + player1Element.textContent + ', you won! Play again?'
+        winScreen.textContent = 'Congrats ' + player1Element.textContent + ', you won Play again?'
     } else if (score2 === 6){
         winScreen.textContent = 'Looks like you just lost $5000...try again?'
     }
     startScreen.style.opacity = '1'
     startScreen.style.transitionDelay = '1s'
 
-    gameReset()
 
 }
 function gameReset(){

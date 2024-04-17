@@ -12,11 +12,11 @@ html,body {
     background-repeat: space;
   }
   #player{
-    background-color: goldenrod;
+    background-color: #f9f6f6;
     color: #222;
   }
   #start-button {
-    background-color: goldenrod;
+    background-color: #f9f6f6;
     color: #222;
     font-style: italic;
   }
@@ -40,18 +40,19 @@ html,body {
     margin: auto;
     height: 3rem;
     font-size: 2rem;
-    font-family: Snell Roundhand, cursive;
+    font-family: 'Games', sans-serif;
   }
   
   h1, h2, h3{
-    font-family: Snell Roundhand, cursive;
-    color: goldenrod;
+    font-family: 'Games', sans-serif;
+    color: #f9f6f6;
     text-align: center;
   }
  
   
   canvas {
     border: solid #222;
+    border-radius: 3rem;
     width: 100%;
     height: 500;
 
@@ -61,12 +62,12 @@ html,body {
     border-radius: 4rem;
   }
   #btm-center, #center, h4{
-    font-family: Snell Roundhand, cursive;
+    font-family: 'Games', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: goldenrod;
-    color: #222;
+    background-color: #222;
+    color: #f9f6f6;
   }
   #container {
   max-width: 50em;
