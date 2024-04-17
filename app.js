@@ -80,7 +80,6 @@ class Meatball {
         //ctx.fillStyle = this.color
         ctx.drawImage(this.image, this.x, this.y, 40, 40)
         ctx.beginPath();
-        ctx.rotate(45 * Math.PI)
         //ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); //https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
         ctx.fill();
         }
@@ -111,7 +110,8 @@ function moveCPUPlate() {
 
 //Game Process
 function gameLoop() {
-    ctx.clearRect(0, 0, game.width, game.height);
+
+    ctx.clearRect(0,0, game.width, game.height)
     plate1.render();
     plate2.render();
     meatball.render();
