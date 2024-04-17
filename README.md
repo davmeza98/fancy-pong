@@ -23,6 +23,7 @@ Use S to move down!
 
 # Approach
 The game utilizes HTML Canvas for rendering graphics and JavaScript for game logic. It features two players, one player-controlled and computer-controlled, and a tomato as the ball. 
+(SIDENOTE: a lot of the functions have label "meatball" because that was original idea, but was scrapped for a tomato instead)
 
 
 Utilize an eventListener to initially hide the canvas, and render it in once the player has entered and submitted their name in the provided field.
