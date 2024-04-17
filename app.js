@@ -30,8 +30,7 @@ function startGameScreen() {
     container.style.opacity = '1';
     player1Element.textContent = playerInput.value;
     runGame = setInterval(gameLoop, 60);
-    setTimeout(runGame, 2000);
-   }
+}
 
 
 window.addEventListener('DOMContentLoaded', function(){
@@ -81,6 +80,7 @@ class Meatball {
         //ctx.fillStyle = this.color
         ctx.drawImage(this.image, this.x, this.y, 40, 40)
         ctx.beginPath();
+        ctx.rotate(45 * Math.PI)
         //ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); //https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
         ctx.fill();
         }
@@ -92,10 +92,10 @@ class Meatball {
 function movementHandler(e) {
     console.log('movement :', e.key);
     if (e.key === 'ArrowUp' || e.key === 'w'){
-        plate2.y - 20 >= 0 ? (plate2.y -= 20) : null;
+        plate2.y - 25 >= 0 ? (plate2.y -= 25) : null;
         
     } else if (e.key === 'ArrowDown' || e.key === 's'){
-        plate2.y + 20 <= game.height - plate2.height ? (plate2.y += 20) : null;
+        plate2.y + 25 <= game.height - plate2.height ? (plate2.y += 25) : null;
     }
 }
 function moveCPUPlate() {
@@ -185,7 +185,7 @@ function showWinner(){
     if (score === 6) {
         winScreen.textContent = 'Congrats ' + player1Element.textContent + ', you won Play again?'
     } else if (score2 === 6){
-        winScreen.textContent = 'Looks like you just lost $5000...try again?'
+        winScreen.textContent = 'Looks like you just lost 5000 Dollars...try again?'
     }
     startScreen.style.opacity = '1'
     startScreen.style.transitionDelay = '1s'

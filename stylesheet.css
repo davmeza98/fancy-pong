@@ -1,6 +1,7 @@
 html,body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
   
   body {
@@ -10,6 +11,7 @@ html,body {
     background-size: cover;
     background-position: center;
     background-repeat: space;
+
   }
   #player{
     background-color: #f9f6f6;
@@ -27,7 +29,8 @@ html,body {
     transition: opacity .5s ease-out;
     background-size: cover;
     border-radius: 4rem;
-    margin: 0 5rem 0 5rem;
+    margin: auto;
+    width: 50rem;
   }
   #start-button {
     margin: auto;
@@ -70,7 +73,8 @@ html,body {
     color: #f9f6f6;
   }
   #container {
-  max-width: 50em;
+  max-height: 40rem;
+  max-width: 50rem;
   margin: 0 auto;
   padding: 1em;
   display: grid;
