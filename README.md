@@ -54,6 +54,11 @@ Once either player scores 6, it will run the winner function, clear the game int
 - Potential improvements in AI for the computer-controlled player. (Maybe create a hardmode with faster computer controlled plate)
 - Adding sound effects and better visuals.
 
+
+# ADD ONS
+- Find a way to get ball to rotate based on direction it is moving
+- Animated winning Screen
+- Adding sound effects and better visuals
 # Getting Started
 
 
