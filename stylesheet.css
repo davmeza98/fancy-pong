@@ -120,3 +120,7 @@ html,body {
   #btm-right {
     grid-area: btm-right;
   }
+  #meatball, #plate1, #plate2{
+    opacity: 0;
+    transition: opacity, .5s ease-in;
+  }

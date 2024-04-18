@@ -189,9 +189,10 @@ function showWinner(){
     }
     startScreen.style.opacity = '1'
     startScreen.style.transitionDelay = '1s'
-
-
+    meatball.x = game.width / 2;
+    meatball.y = game.height /2;
 }
+
 function gameReset(){
     score = 0;
     score2 = 0;
